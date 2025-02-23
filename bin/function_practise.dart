@@ -29,47 +29,82 @@
 //   }
 // }
 
-
-void main() async{
-
-
+//
+// void main() async{
+//
+//
 //   int value1 =  await Future.delayed(Duration(seconds: 10),()=>1000);
 //   print("The value is $value1");
-
+//
 //   int value2 = await Future.delayed(Duration(seconds: 2),()=>10);
-
+//
 //   print("the value is $value2");
-
+//
 //   print("Have a nice day");
+//
+//   Future value = getValue();
+//
+//   int value = await getValue();
+//
+//   getSecond().then((v){
+//     print("the value is $v");
+//   });
+//
+//
+//   getFirst().then((v){
+//     print("the value is $v");
+//   });
+//   print("have a nice day");
+//
+//
+// }
+//
+//
+// Future<int> getSecond()async{
+//   await Future.delayed(Duration(seconds:10));
+//   return Future.value(100);
+//
+// }
+//
+//
+//
+// Future<int> getFirst()async{
+//   await Future.delayed(Duration(seconds:5));
+//   return Future.value(10);
+//
+//
+// }
 
-  //Future value = getValue();
+void main(){
 
-  //int value = await getValue();
-
-  getSecond().then((v){
-    print("the value is $v");
-  });
-
-
-  getFirst().then((v){
-    print("the value is $v");
-  });
-  print("have a nice day");
-
-
+  var marks = [12,16,18,15,11,19];
+  Calculation(marks);
 }
 
+void Calculation(List<int> marks){
 
-Future<int> getSecond()async{
-  await Future.delayed(Duration(seconds:10));
-  return Future.value(100);
+  int totalmarks = 120;
+  int obtainedmarks = marks.reduce((a,b) => a + b);
+  double percentage = obtainedmarks / totalmarks * 100;
 
-}
+  String grade;
+  if ( percentage >= 70){
+    grade = 'A';
+  }
+  else if ( percentage >= 60){
+    grade = 'B';
+  }
+  else if ( percentage >= 50){
+    grade = 'C';
+  }
+  else{
+    grade = 'Fail';
+  }
 
 
 
-Future<int> getFirst()async{
-  await Future.delayed(Duration(seconds:5));
-  return Future.value(10);
-
+  print("Total Marks: $totalmarks");
+  print("Obtained Marks: $obtainedmarks");
+  print("Percentage: ${percentage.toStringAsFixed(2)}%");
+  print("Grades: $grade");
 }
